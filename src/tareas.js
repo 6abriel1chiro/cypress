@@ -10,6 +10,10 @@ class Tareas{
         return "tareaGuardada";
     }
 
+    eliminar(tarea, nomTarea){
+        this.listaTareas.filter(tarea.nomTarea)
+        return this.listaTareas;
+    }
 }
 
 export default Tareas

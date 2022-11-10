@@ -10,7 +10,7 @@ const registerButton = document.querySelector("#btn");
 let divConfirmacion = document.querySelector("#msg");
 let divGuardado = document.querySelector("#msgSave");
 
-let listaTareas = new Tareas();
+let tareas = new Tareas();
 
 registerButton.addEventListener("click", (event) => {
     event.preventDefault();
@@ -18,7 +18,7 @@ registerButton.addEventListener("click", (event) => {
     let tarea = new Tarea();
     tarea.crear(title.value, desc.value, sub.value, date.value);
     let mensaje = tarea.mostrar();
-    let mensaje2 = listaTareas.guardar(tarea);
+    let mensaje2 = tareas.guardar(tarea);
     divConfirmacion.innerHTML = "<p>"+mensaje+"</p>";
     divGuardado.innerHTML = "<p>"+mensaje2+"</p>";
 });

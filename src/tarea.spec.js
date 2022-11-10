@@ -37,6 +37,22 @@ describe("Guardar tareas", () => {
 });
 
 
+describe("Eliminar tareas", () => {
+    let listaTareas = new Tareas();
+    let tarea = new Tarea();
+    it("Crear una tarea", () => {
+        expect(tarea.crear('diagramas', 'detalles', 'sis info', '05/2022')).toEqual("tareaCreada");
+    });
+
+    it("Guardar una tarea", () => {
+        expect(listaTareas.guardar(tarea)).toEqual("tareaGuardada");
+    });
+
+    it("Eliminar una tarea", () => {
+        expect(listaTareas.eliminar('diagramas')).toEqual([]);
+    });
+});
+
 
 /*describe("Guardar una tarea", () => {
     it("Creara una tarea con detalles simples", () => {
