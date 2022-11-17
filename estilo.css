@@ -3,3 +3,15 @@
     width: 100%;
     justify-content: center;
 }
+
+.buttons-container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    margin-top: 25%;
+}
+
+.button1-container{
+    margin-left: 50px;
+}
