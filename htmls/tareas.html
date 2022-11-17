@@ -1,38 +1,37 @@
 <html>
   <body>
-
-    <h2>Añadir</h2>
-    <form>
-      <div class="formBox">
+    <title>Vista #1</title>
+    <h1><mark>TAREA</mark></h1>
+    <form id="formBox">
           <label for="title">tarea</label>
           <input type="text" id="title" placeholder="Title"/>
-      </div>
-      
-      <div class="formBox">
+      <br>
           <label for="description">descripcion</label>
           <input type="text" id="description" placeholder="detalle"/>
-      </div>
-      <div class="formBox">
+      <br>
           <label for="subject">materia</label>
-          <input type="text" id="subject" placeholder="materia"/>
-      </div>
-
-      <div class="formBox">
+          <select name="sunject" id="subject">
+            <option value="IngSoft">Ing Software</option>
+            <option value="Ingles">Ingles</option>
+            <option value="Calculo1">Calculo1</option>
+            <option value="Calculo2">Calculo2</option>
+          </select>
+          <br><br>
+          <div> no ves al materia de la que eres docente? <a href="materia.html">agregala</a></div>
+          <!-- <input type="text" id="subject" placeholder="materia"/>-->
+      <br>
           <label for="date">fecha</label>
-          <input type="text" id="date" placeholder="fecha"/>
-      </div>
+          <input type="datetime-local" id="date" placeholder="fecha"/>
+      <br>
+          <input type="submit" value="Crear" id="crear-button" />
+    </form>
+    <div id="vista-div"></div>
 
-      <div class="formBox">
-          <button id="btn">Click to Add</button>
-      </div>
 
-  </form>
-  <div id="msg">
-    <!-- <pre></pre> -->
-  </div>
-  <div id="msgSave">
-    
-  </div>
+  <a href="docentes.html">Volver</a>
+  <br>
+  <div id="msg"> </div>
+  <br>
     <script type="module" src="../src/presenter_tarea.js"></script>
   </body>
 </html>
