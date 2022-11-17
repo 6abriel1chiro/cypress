@@ -17,10 +17,11 @@
     <div class = "buttons-container">
       <div class = "button-container">
         <div>
-          <button class = "button"><a href="./htmls/docentes.html">Soy docente</a></button>
+          
+          <button onclick = visitPageDocentes() class = "button">Soy docente</button>
         </div>
         <div class = "button1-container">
-          <button class = "button"><a href="./htmls/estudiantes.html">Soy estudiante</a></button>
+          <button onclick = visitPageEstudiantes() class = "button">Soy estudiante</a></button>
         </div>
       </div>
     </div>
@@ -34,7 +35,14 @@
     
   
      
-
+<script>
+      function visitPageDocentes(){
+          window.location='./htmls/docentes.html';
+      }
+      function visitPageEstudiantes(){
+          window.location='./htmls/estudiantes.html';
+      }
+</script>
 </body>
 
 </html>
