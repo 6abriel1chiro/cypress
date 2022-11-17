@@ -13,4 +13,9 @@ describe("Ver pagina principal", () => {
         cy.get("#boton-docente").click();
         cy.url().should("include", "/htmls/docentes");
     });
+    it("el boton de estudiantes debe redireccionar a la pagina de estudiantes", () => {
+        cy.visit('index.html');
+        cy.get("#boton-estudiante").click();
+        cy.url().should("include", "/htmls/estudiantes");
+    });
   });
