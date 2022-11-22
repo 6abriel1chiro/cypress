@@ -21,7 +21,6 @@ const crear = document.querySelector("#crear-form");
 const materiadada = document.querySelector("#nombre-materia-items");
 const docente = document.querySelector("#docente-item");
 const vistaMat = document.querySelector("#vistaMat-div");
-const mensajeMat = "creada con exito !!!";
 let nuevasMaterias = [];
 
 //const divMaterias = document.querySelector("#lista-materias-div"); YA NO ES NECESARIO, TODAS LAS MATERIAS SE VEN EN EL COMBO BOX
@@ -48,15 +47,23 @@ crear.addEventListener("submit", (event) => {
   const docente_text = docente.value;
 
   let materia = new Materia();
-  materia.crearMateria(materia_nombre, docente_text);
+  let checkMateria = materia.crearMateria(materia_nombre, docente_text);
   nuevasMaterias.push(materia);
 
-  vistaMat.innerHTML = "<p>" + mensajeMat + "</p>";
+  if(checkMateria == true)
+  {
+    vistaMat.innerHTML = "<p> creada con exito !! </p>";
 
-  sub.options[sub.options.length] = new Option(
-    materia_nombre + ":" + docente_text,
-    materia_nombre
-  );
+    sub.options[sub.options.length] = new Option(
+      materia_nombre + ":" + docente_text,
+      materia_nombre
+    );
+  }
+
+  else{
+    vistaMat.innerHTML = "<p> No se pudo crear la materia</p>";
+  }
+
 });
 
 createForm.addEventListener("submit", (event) => {
