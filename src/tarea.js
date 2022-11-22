@@ -4,52 +4,71 @@ class Tarea{
         this.descripcion = "";
         this.materia = "";
         this.fecha = "";
+        this.estado = "";
+
     }
 
-    crearTarea(title, desc, mat, date) {
+    getTitulo(){
+        return this.titulo;
+    }
+
+    getDescripcion(){
+        return this.descripcion;
+    }
+    getMateria(){
+        return this.materia;
+    }
+
+    getFecha(){
+        return this.fecha;
+    }
+    getEstado(){
+        return this.estado;
+    }
+
+
+    crear(title, desc, mat, date){
         this.titulo = title;
         this.descripcion = desc;
         this.materia = mat;
         this.fecha = date;
-        return "Creada con exito!.";
+        this.estado = "pendiente";
+
     }
 
-    obtenerTitulo() {
-        return this.titulo;
+    getDetalles(){
+        let cadenaDatos = "<p>" + "tarea:" + this.titulo + " , " +
+        " descripcion:" + this.descripcion + " , " +
+        " materia:" + this.materia + " , " +
+        " fecha:" + this.fecha +"</p>";
+        return cadenaDatos;    
     }
 
-    obtenerDescripcion() {
-        return this.descripcion;
+    getDetallesBrief(){
+        let cadenaDatos = "<p>" + "tarea:" + this.titulo + " , " +
+        "materia:" + this.materia + "</p>";
+        return cadenaDatos;    
     }
 
-    obtenerMateria() {
-        return this.materia;
-    }
 
-    obtenerFecha() {
-        return this.fecha;
-    }
 
-    eliminarTarea() {
+    eliminar(){
         this.titulo = "";
         this.descripcion = "";
         this.materia = "";
         this.fecha = "";
-        return "Eliminada con exito!.";
+        this.estado = "";
     }
 
-    mostrarTarea() {
-        return `titulo:${this.titulo}, descripcion:${this.descripcion}, materia:${this.materia}, fecha:${this.fecha}`;
+
+    isInSubjectList(materias)
+    {
+        if (materias.includes(this.materia) )
+        {
+            return true;
+        }
     }
 
-    obtenerTodosLosDatos() {
-        let cadenaDatos = "<p> Titulo: " + this.obtenerTitulo() + "<p>" +
-                          "<p> Descripcion: "+ this.obtenerDescripcion() + "<p>" +
-                          "<p> Materia: "+ this.obtenerMateria() + "<p>" +
-                          "<p> Fecha: "+ this.obtenerFecha() + "<p>" +
-                          "</p>";
-        return cadenaDatos;
-    }
 }
 
 export default Tarea
