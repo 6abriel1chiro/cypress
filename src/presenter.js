@@ -13,7 +13,6 @@ const date = document.querySelector("#date");
 
 let divListaTareas = document.querySelector("#lista-tareas");
 const vista = document.querySelector("#vista-div");
-const mensaje = "se creo la tarea";
 let tareas = [];
 
 const crear = document.querySelector("#crear-form");
@@ -48,10 +47,11 @@ crear.addEventListener("submit", (event) => {
 
   let materia = new Materia();
   let checkMateria = materia.crearMateria(materia_nombre, docente_text);
-  nuevasMaterias.push(materia);
 
   if(checkMateria == true)
   {
+    nuevasMaterias.push(materia);
+
     vistaMat.innerHTML = "<p> creada con exito !! </p>";
 
     sub.options[sub.options.length] = new Option(
@@ -76,18 +76,28 @@ createForm.addEventListener("submit", (event) => {
   const subTarea = sub.options[sub.selectedIndex].text;
   const dateTarea = date.value;
 
-  tarea.crear(tituloTarea, descTarea, subTarea, dateTarea);
-  tareas.push(tarea);
-  listaFechas.push(dateTarea);
-  vista.innerHTML = "<p>" + mensaje + "</p>";
-
-  //console.log(listaFechas);
-
-  listaDeTareas = "";
-  for (i = 0; i < tareas.length; i++) {
-    listaDeTareas = listaDeTareas + tareas[i].getDetalles();
+  
+  checkTarea = tarea.crear(tituloTarea, descTarea, subTarea, dateTarea);
+  
+  if(checkTarea == true)
+  {
+    tareas.push(tarea);
+    listaFechas.push(dateTarea);
+    vista.innerHTML = "<p> se creo la tarea </p>";
+  
+    //console.log(listaFechas);
+  
+    listaDeTareas = "";
+    for (i = 0; i < tareas.length; i++) {
+      listaDeTareas = listaDeTareas + tareas[i].getDetalles();
+    }
+    divListaTareas.innerHTML = listaDeTareas;
   }
-  divListaTareas.innerHTML = listaDeTareas;
+  else{
+    vista.innerHTML = "<p> No se creo la tarea </p>";
+
+  }
+
 });
 
 sortByDate.addEventListener("click", (event) => {

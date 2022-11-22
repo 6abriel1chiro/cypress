@@ -28,11 +28,16 @@ class Tarea{
 
 
     crear(title, desc, mat, date){
+        if (title==""|| desc==""|| mat==""|| date=="")
+        {
+            return false;
+        }
         this.titulo = title;
         this.descripcion = desc;
         this.materia = mat;
         this.fecha = date;
         this.estado = "pendiente";
+        return true;
 
     }
 

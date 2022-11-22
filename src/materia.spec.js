@@ -25,7 +25,6 @@ describe("MODIFICAR MATERIA", () => {
         materia.eliminar();
         expect(materia.getNombre()).toEqual("");
         expect(materia.getDocente()).toEqual("");
-
     });
 
 

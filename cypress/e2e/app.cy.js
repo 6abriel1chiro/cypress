@@ -30,13 +30,23 @@ describe("Crear tarea", () => {
      cy.visit('http://localhost:1234/htmls/docentes.html');
     cy.get("#title").type("Ejercicios");
     cy.get("#description").type("Resolver");
-    cy.get("#subject").type("Mate Basica:M. Soruco");
+    cy.get("#subject").select("Mate Basica");
     cy.get("#date").type("2022-11-19")
     cy.get("#btn").click();
 
     cy.get("#lista-tareas").should("contain", "tarea:Ejercicios ,  descripcion:Resolver ,  materia:Mate Basica:M. Soruco ,  fecha:2022-11-19");
     
   });
+
+  it("crear una tarea", () => {
+    cy.visit('http://localhost:1234/htmls/docentes.html');
+   cy.get("#title").type("Ejercicios");
+   cy.get("#subject").select("Mate Basica");
+   cy.get("#date").type("2022-11-19")
+   cy.get("#btn").click();   
+
+   cy.get("#vista-div").should("contain","No se creo la tarea")
+ });
 });
 
 describe("Crear una materia", () => {
