@@ -1,11 +1,11 @@
 class Tarea{
-    constructor() {
-        this.titulo = "";
-        this.descripcion = "";
-        this.materia = "";
-        this.fecha = "";
-        this.estado = "";
-
+    mostrar="";
+    constructor(titulo, descripcion, materia, fecha) {
+        this.titulo = titulo;
+        this.descripcion = descripcion;
+        this.materia = materia;
+        this.fecha = fecha;
+        this.listaTareas = [];
     }
 
     getTitulo(){
@@ -25,8 +25,7 @@ class Tarea{
     getEstado(){
         return this.estado;
     }
-
-
+     
     crear(title, desc, mat, date){
         if (title==""|| desc==""|| mat==""|| date=="")
         {
@@ -74,6 +73,19 @@ class Tarea{
         }
     }
 
+    agregar(Tarea){              
+        this.listaTareas.push(Tarea);
+        
+        this.listaTareas=this.listaTareas.sort((a, b) => a.fecha - b.fecha);
+    }
+
+    buscar(titulo){
+        for(let i = 0;i<this.listaTareas.length;i++){
+            if(this.listaTareas[i].titulo==titulo){
+                return this.listaTareas[i];
+            }
+        }
+    }
 }
 
 export default Tarea
