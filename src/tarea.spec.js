@@ -3,67 +3,72 @@ let tarea = new Tarea;
 
 describe("CREAR UNA TAREA", () => {
     it("Deberia devolver el titulo de la tarea", () => {
-        tarea.crearTarea("Proyectos de grados", "Investigar metodologias agiles", "Taller de desarrollo", "16/11/2022");
-        expect(tarea.obtenerTitulo()).toEqual("Proyectos de grados");
+        tarea.crear("Proyectos de grados", "Investigar metodologias agiles", "Taller de desarrollo", "16/11/2022");
+        expect(tarea.getTitulo()).toEqual("Proyectos de grados");
     });
 
     it("Deberia devolver la descripcion de la tarea", () => {
-        tarea.crearTarea("Proyectos de grados", "Investigar metodologias agiles", "Taller de desarrollo", "16/11/2022");
-        expect(tarea.obtenerDescripcion()).toEqual("Investigar metodologias agiles");
+        tarea.crear("Proyectos de grados", "Investigar metodologias agiles", "Taller de desarrollo", "16/11/2022");
+        expect(tarea.getDescripcion()).toEqual("Investigar metodologias agiles");
+    });
+});
+
+
+describe("Crear una tarea", () => {
+    let tarea = new Tarea;
+
+    
+    it("Creara una tarea con detalles simples", () => {
+        tarea.crear('ejercicio', 'diagramas', 'sis info', '05/2022');
+
+
+        expect(tarea.getDetalles()).toEqual( "<p>" + "tarea:" + tarea.titulo + " , " +
+        " descripcion:" + tarea.descripcion + " , " +
+        " materia:" + tarea.materia + " , " +
+        " fecha:" + tarea.fecha +"</p>"  )
     });
 
-    it("Deberia devolver el nombre de la materia de la tarea", () => {
-        tarea.crearTarea("Proyectos de grados", "Investigar metodologias agiles", "Taller de desarrollo", "16/11/2022");
-        expect(tarea.obtenerMateria()).toEqual("Taller de desarrollo");
+    it("Deberia devolver el titulo de la tarea", () => {
+        tarea.crear('practica', 'ejercicios', 'calculo', '05/2022');
+        expect(tarea.getTitulo()).toEqual(tarea.titulo);
     });
-
+    it("Deberia devolver descripcion de la tarea", () => {
+        tarea.crear('practica', 'ejercicios', 'calculo', '05/2022');
+        expect(tarea.getDescripcion()).toEqual(tarea.descripcion);
+    });
     it("Deberia devolver la fecha de la tarea", () => {
-        tarea.crearTarea("Proyectos de grados", "Investigar metodologias agiles", "Taller de desarrollo", "16/11/2022");
-        expect(tarea.obtenerFecha()).toEqual("16/11/2022");
+        tarea.crear('practica', 'ejercicios', 'calculo', '05/2022');
+        expect(tarea.getFecha()).toEqual(tarea.fecha);
+    });
+    it("Deberia devolver la materia de la tarea", () => {
+        tarea.crear('practica', 'ejercicios', 'calculo', '05/2022');
+        expect(tarea.getMateria()).toEqual(tarea.materia);
     });
 
-    it("Deberia mostrar completamente una tarea con datos ingresados", () => {
-        tarea.crearTarea("Funciones algebraicas", "Resolver los 10 ejercicios", "Calculo I", "01/12/2022");
-        expect(tarea.mostrarTarea()).toEqual("titulo:Funciones algebraicas, descripcion:Resolver los 10 ejercicios, materia:Calculo I, fecha:01/12/2022")
-    });
 
-    it("Crear una tarea con detalles simples", () => {
-        expect(tarea.crearTarea('diagramas', 'detalles', 'sis info', '05/08/2022')).toEqual("Creada con exito!.")
-    });
+
 });
 
-describe("ELIMINAR TAREAS", () => {
-    it("Deberia eliminar el titulo de la tarea", () => {
-        tarea.eliminarTarea();
-        expect(tarea.obtenerTitulo()).toEqual("");
+
+describe("ELIMINAR tarea", () => {
+    let tarea = new Tarea;
+    tarea.crear('ejercicio', 'diagramas', 'sis info', '05/2022');
+
+    it("la tarea debe estar eliminada", () => {
+        tarea.eliminar();""
+        expect(tarea.getTitulo()).toEqual("");
+        expect(tarea.getDescripcion()).toEqual("");
+        expect(tarea.getEstado()).toEqual("");
+        expect(tarea.getMateria()).toEqual("");
+        expect(tarea.getFecha()).toEqual("");
+
+
     });
 
-    it("Deberia eliminar la descripcion de la tarea", () => {
-        tarea.eliminarTarea();
-        expect(tarea.obtenerDescripcion()).toEqual("");
+    /* 
+    it("Deberia modificar la tarea", () => {
+        materia.editarTarea();
+        expect(materia.getDocente()).toEqual("");
     });
-
-    it("Deberia eliminar el nombre de la tarea", () => {
-        tarea.eliminarTarea();
-        expect(tarea.obtenerMateria()).toEqual("");
-    });
-
-    it("Deberia eliminar la fecha de la tarea", () => {
-        tarea.eliminarTarea();
-        expect(tarea.obtenerFecha()).toEqual("");
-    });
-});
-
-describe("GENERALIDADES DE TAREAS", () => {
-    it("Confirmacion al crear la tarea", () => {
-        expect(tarea.crearTarea('diagramas', 'detalles', 'sis info', '05/2022')).toEqual("Creada con exito!.");
-    });
-
-    it("Sobreescribir una tarea", () => {
-        expect(tarea.crearTarea('diagramas2', 'detalles2', 'sis info2', '05/20222')).toEqual("Creada con exito!.");
-    });
-
-    it("Confirmacion al eliminar la tarea", () => {
-        expect(tarea.eliminarTarea('diagramas', 'detalles', 'sis info', '05/2022')).toEqual("Eliminada con exito!.");
-    });
+    */
 });

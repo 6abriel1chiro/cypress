@@ -1,24 +1,28 @@
 describe("Crear materia", () => {
     it("Muestra campos para llenar una materia", () => {
-      cy.visit("http://localhost:1234/htmls/materia.html");
+      
+      cy.visit("http://localhost:1234/htmls/docentes.html");
       cy.get("#nombre-materia-items").type("Ing. Software");
       cy.get("#docente-item").type("Israel Antezana");
       cy.get("#crear-button").click();
-      cy.get("#vista-div").should("contain", "creada con exito !!!");
+      cy.get("#vistaMat-div").should("contain", "creada con exito !!!");
     });
 });
 
 describe("Crear tarea", () => {
-  it("Muestra campos para llenar una tarea", () => {
-    cy.visit("http://localhost:1234/htmls/tareas.html");
-    cy.get("#title").type("Web scrapping");
-    cy.get("#description").type("Extraer datos de vuelos de aerolineas");
-    cy.get("#subject").type("Ing. Software");
-    cy.get("#date").type("2017-06-01T08:30");
+  it("crear una tarea", () => {
+     cy.visit('http://localhost:1234/htmls/docentes.html');
+    cy.get("#title").type("Ejercicios");
+    cy.get("#description").type("Resolver");
+    cy.get("#subject").type("Mate Basica:M. Soruco");
+    cy.get("#date").type("2022-11-19")
+    cy.get("#btn").click();
+
+    cy.get("#lista-tareas").should("contain", "tarea:Ejercicios ,  descripcion:Resolver ,  materia:Mate Basica:M. Soruco ,  fecha:2022-11-19");
+
+
+
     
-    // ERRORES A SOLUCIONAR \\
-    //cy.get("#crear-button").click();
-    //cy.get("#vista-div").should("contain", "creada con exito !!!");
   });
 });
   
