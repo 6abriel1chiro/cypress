@@ -16,6 +16,7 @@ const buscarNomTarea = document.querySelector("#buscar-tarea");
 let divListaTareas = document.querySelector("#lista-tareas");
 const vista = document.querySelector("#vista-div");
 const divBusqueda = document.querySelector("#encontrado-div");
+const btnEliminar = document.querySelector("#eliminar-button");
 
 let lista2 = new Tarea();
 let tareas = [];
@@ -82,8 +83,7 @@ createForm.addEventListener("submit", (event) => {
   const dateTarea = date.value;
 
   const tar = new Tarea(tituloTarea, descTarea, subTarea, dateTarea);
-  const lista = new Tarea();
-  lista.agregar(tar);
+  lista2.agregar(tar);
 
   checkTarea = tarea.crear(tituloTarea, descTarea, subTarea, dateTarea);
   
@@ -105,8 +105,6 @@ createForm.addEventListener("submit", (event) => {
     vista.innerHTML = "<p> No se creo la tarea </p>";
 
   }
-  lista2 = lista;
-
 });
 
 createBuscador.addEventListener("submit", (event) => {
@@ -142,7 +140,6 @@ sortBySub.addEventListener("click", (event) => {
   divListaTareas.innerHTML = listaDeTareas;
 });
 
-
 reportBtn.addEventListener("click", (event) => {
   event.preventDefault();
   //console.log(students)
@@ -163,6 +160,12 @@ reportBtn.addEventListener("click", (event) => {
     reporteTareas = reporteTareas + tareas[i].getDetallesBrief() + "(" + studentCounter.toString() + ")";
   }
   report.innerHTML = reporteTareas;
+});
 
-
+btnEliminar.addEventListener("click", (event) => {
+  event.preventDefault();
+  lista2.eliminar(buscarNomTarea.value);
+  // Actualizar la lista de Tareas y el Reporte despues de eliminar \\
+  divListaTareas.innerHTML = lista2.mostrarLista();
+  report.innerHTML = lista2.mostrarLista();
 });

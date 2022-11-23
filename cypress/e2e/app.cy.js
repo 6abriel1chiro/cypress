@@ -1,6 +1,5 @@
 describe("Crear materia", () => {
     it("Muestra campos para llenar una materia", () => {
-      
       cy.visit("http://localhost:1234/htmls/docentes.html");
       cy.get("#nombre-materia-items").type("Ing. Software");
       cy.get("#docente-item").type("Israel Antezana");
@@ -9,7 +8,6 @@ describe("Crear materia", () => {
     });
 
     it("No se creo una materia porque no tiene nombre", () => {
-      
       cy.visit("http://localhost:1234/htmls/docentes.html");
       cy.get("#docente-item").type("Israel Antezana");
       cy.get("#crear-button").click();
@@ -17,7 +15,6 @@ describe("Crear materia", () => {
     });
 
     it("No se creo una materia porque no tiene docente", () => {
-      
       cy.visit("http://localhost:1234/htmls/docentes.html");
       cy.get("#nombre-materia-items").type("Ing. Software");
       cy.get("#crear-button").click();
