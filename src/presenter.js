@@ -115,8 +115,8 @@ createBuscador.addEventListener("submit", (event) => {
   const buscarTarea = buscarNomTarea.value;  
   const tareaEncontrada = lista2.buscar(buscarTarea); 
 
-  divBusqueda.innerHTML = "<p>"+"Tarea: " + tareaEncontrada.titulo + " Descripcion: " + tareaEncontrada.descripcion + 
-                          " Materia: " + tareaEncontrada.materia + " Fecha: " + tareaEncontrada.fecha +
+  divBusqueda.innerHTML = "<p>" + "Tarea: " + tareaEncontrada.titulo + "<p>" + "Descripcion: " + tareaEncontrada.descripcion + 
+                          "<p>" + "Materia: " + tareaEncontrada.materia + "<p>" + "Fecha: " + tareaEncontrada.fecha +
                           "</p>";
 });
 

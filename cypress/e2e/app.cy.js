@@ -103,7 +103,10 @@ describe("Buscador de tareas", () => {
   cy.get("#buscar-tarea").type("tarea 5");
   cy.get("#buscar-button").click();
 
-  cy.get("#encontrado-div").should("contain", "Tarea: tarea 5 Descripcion: realiza tu tarea Materia: Mate Basica:M. Soruco Fecha: 2022-11-20");
+  cy.get("#encontrado-div").should("contain", "Tarea: tarea 5", 
+                                              "Descripcion: realiza tu tarea",
+                                              "Materia: Mate Basica:M. Soruco",
+                                              "Fecha: 2022-11-20");
   });   
 });
   
