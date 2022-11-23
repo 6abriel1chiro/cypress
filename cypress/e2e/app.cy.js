@@ -1,6 +1,5 @@
 describe("Crear materia", () => {
     it("Muestra campos para llenar una materia", () => {
-      
       cy.visit("http://localhost:1234/htmls/docentes.html");
       cy.get("#nombre-materia-items").type("Ing. Software");
       cy.get("#docente-item").type("Israel Antezana");
@@ -9,7 +8,6 @@ describe("Crear materia", () => {
     });
 
     it("No se creo una materia porque no tiene nombre", () => {
-      
       cy.visit("http://localhost:1234/htmls/docentes.html");
       cy.get("#docente-item").type("Israel Antezana");
       cy.get("#crear-button").click();
@@ -17,7 +15,6 @@ describe("Crear materia", () => {
     });
 
     it("No se creo una materia porque no tiene docente", () => {
-      
       cy.visit("http://localhost:1234/htmls/docentes.html");
       cy.get("#nombre-materia-items").type("Ing. Software");
       cy.get("#crear-button").click();
@@ -87,7 +84,26 @@ describe("Ordenar lista de tareas", () => {
     cy.get("#btn").click();
 
     cy.get("#lista-tareas").should("contain", "tarea:Ejercicios ,  descripcion:Resolver ,  materia:Mate Basica:M. Soruco ,  fecha:2022-11-20" );
-
   });
+});
+
+describe("Buscador de tareas", () => {
+  it("Deberia encontrar una tarea por su titulo", () => {
+  cy.visit('http://localhost:1234/htmls/docentes.html');
+
+  cy.get("#title").type("tarea 5");
+  cy.get("#description").type("realiza tu tarea");
+  cy.get("#subject").type("SIS-131-ARQUITECTURA DE COMPUTADORAS");
+  cy.get("#date").type("2022-11-20");
+  cy.get("#btn").click();
+
+  cy.get("#buscar-tarea").type("tarea 5");
+  cy.get("#buscar-button").click();
+
+  cy.get("#encontrado-div").should("contain", "Tarea: tarea 5", 
+                                              "Descripcion: realiza tu tarea",
+                                              "Materia: Mate Basica:M. Soruco",
+                                              "Fecha: 2022-11-20");
+  });   
 });
   

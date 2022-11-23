@@ -5,14 +5,20 @@ import estudiantes from "./estudiantes.js";
 
 
 const createForm = document.querySelector("#formBox");
+const createBuscador = document.querySelector("#buscador-form");
 
 const titulo = document.querySelector("#title");
 const desc = document.querySelector("#description");
 const sub = document.querySelector("#subject");
 const date = document.querySelector("#date");
+const buscarNomTarea = document.querySelector("#buscar-tarea");
 
 let divListaTareas = document.querySelector("#lista-tareas");
 const vista = document.querySelector("#vista-div");
+const divBusqueda = document.querySelector("#encontrado-div");
+const btnEliminar = document.querySelector("#eliminar-button");
+
+let lista2 = new Tarea();
 let tareas = [];
 
 const crear = document.querySelector("#crear-form");
@@ -76,7 +82,9 @@ createForm.addEventListener("submit", (event) => {
   const subTarea = sub.options[sub.selectedIndex].text;
   const dateTarea = date.value;
 
-  
+  const tar = new Tarea(tituloTarea, descTarea, subTarea, dateTarea);
+  lista2.agregar(tar);
+
   checkTarea = tarea.crear(tituloTarea, descTarea, subTarea, dateTarea);
   
   if(checkTarea == true)
@@ -97,7 +105,17 @@ createForm.addEventListener("submit", (event) => {
     vista.innerHTML = "<p> No se creo la tarea </p>";
 
   }
+});
 
+createBuscador.addEventListener("submit", (event) => {
+  event.preventDefault();   
+
+  const buscarTarea = buscarNomTarea.value;  
+  const tareaEncontrada = lista2.buscar(buscarTarea); 
+
+  divBusqueda.innerHTML = "<p>" + "Tarea: " + tareaEncontrada.titulo + "<p>" + "Descripcion: " + tareaEncontrada.descripcion + 
+                          "<p>" + "Materia: " + tareaEncontrada.materia + "<p>" + "Fecha: " + tareaEncontrada.fecha +
+                          "</p>";
 });
 
 sortByDate.addEventListener("click", (event) => {
@@ -122,7 +140,6 @@ sortBySub.addEventListener("click", (event) => {
   divListaTareas.innerHTML = listaDeTareas;
 });
 
-
 reportBtn.addEventListener("click", (event) => {
   event.preventDefault();
   //console.log(students)
@@ -143,6 +160,12 @@ reportBtn.addEventListener("click", (event) => {
     reporteTareas = reporteTareas + tareas[i].getDetallesBrief() + "(" + studentCounter.toString() + ")";
   }
   report.innerHTML = reporteTareas;
+});
 
-
+btnEliminar.addEventListener("click", (event) => {
+  event.preventDefault();
+  lista2.eliminar(buscarNomTarea.value);
+  // Actualizar la lista de Tareas y el Reporte despues de eliminar \\
+  divListaTareas.innerHTML = lista2.mostrarLista();
+  report.innerHTML = lista2.mostrarLista();
 });
