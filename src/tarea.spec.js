@@ -1,8 +1,9 @@
 import Tarea from "./tarea.js"
 
-let tarea = new Tarea;
+
 
 describe("CREAR UNA TAREA", () => {
+    let tarea = new Tarea;
     it("Deberia devolver el titulo de la tarea", () => {
         tarea.crear("Proyectos de grados", "Investigar metodologias agiles", "Taller de desarrollo", "16/11/2022");
         expect(tarea.getTitulo()).toEqual("Proyectos de grados");
@@ -16,6 +17,10 @@ describe("CREAR UNA TAREA", () => {
 
 
 describe("Crear una tarea", () => {
+    let tarea
+    beforeEach( () => {
+       tarea = new Tarea()
+    });
     
     it("Creara una tarea con detalles simples", () => {
         tarea.crear('ejercicio', 'diagramas', 'sis info', '05/2022');
@@ -25,6 +30,12 @@ describe("Crear una tarea", () => {
         " descripcion:" + tarea.descripcion + " , " +
         " materia:" + tarea.materia + " , " +
         " fecha:" + tarea.fecha +"</p>"  )
+    });
+
+
+    it("No se creara si falta un detalle", () => {
+        let res = tarea.crear('', 'diagramas', 'sis info', '');
+        expect(res).toEqual(false)
     });
 
 
@@ -60,6 +71,7 @@ describe("Crear una tarea", () => {
 
 
 describe("ELIMINADOR de tarea", () => {
+    let tarea = new Tarea;
     tarea.crear('ejercicio', 'diagramas', 'sis info', '05/2022');
     it("la tarea debe estar eliminada", () => {
         tarea.eliminar();
@@ -96,11 +108,12 @@ describe("MODIFICADOR de tarea", () => {
 });
 
 describe("BUSCADOR de tarea", () => {
+    let tarea = new Tarea;
     it("Deberia buscar una tarea que no existe y regresar No se encontro.", () => {
         const test1 = new Tarea("Web Scrapping","Recopilacion de informacion","Sis info III","12-04-2022");
         tarea.agregar(test1)
         const resultado = tarea.buscar("Tablas Hash");
-        expect(resultado).toEqual("No se encontro.");
+        expect(resultado).toEqual(false);
     });
     it("Deberia buscar una tarea asignada", () => {
         const test1 = new Tarea("Web Scrapping","Recopilacion de informacion","Sis info III","12-04-2022");

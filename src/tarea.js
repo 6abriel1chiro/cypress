@@ -121,7 +121,7 @@ class Tarea{
 
         }
         if(aux == titulo){
-            return "No se encontro.";
+            return false;
         }
     }
 }

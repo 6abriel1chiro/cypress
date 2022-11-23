@@ -104,6 +104,19 @@ describe("Buscador de tareas", () => {
                                               "Descripcion: realiza tu tarea",
                                               "Materia: Mate Basica:M. Soruco",
                                               "Fecha: 2022-11-20");
-  });   
+  });
+  it("Alerta si no se encuentra una tarea", () => {
+    cy.visit('http://localhost:1234/htmls/docentes.html');
+  
+    cy.get("#title").type("tarea 5");
+    cy.get("#description").type("realiza tu tarea");
+    cy.get("#subject").type("SIS-131-ARQUITECTURA DE COMPUTADORAS");
+    cy.get("#date").type("2022-11-20");
+    cy.get("#btn").click();
+  
+    cy.get("#buscar-button").click();
+  
+    cy.get("#encontrado-div").should("contain", "No se encontro la tarea");
+    }); 
 });
   

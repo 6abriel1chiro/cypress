@@ -112,10 +112,15 @@ createBuscador.addEventListener("submit", (event) => {
 
   const buscarTarea = buscarNomTarea.value;  
   const tareaEncontrada = lista2.buscar(buscarTarea); 
+  
+  if(tareaEncontrada != false){
+    divBusqueda.innerHTML = "<p>" + "Tarea: " + tareaEncontrada.titulo + "</p>" + "<p> Descripcion: " + tareaEncontrada.descripcion + 
+    "</p> <p>" + "Materia: " + tareaEncontrada.materia + "</p>" + "<p> Fecha: " + tareaEncontrada.fecha+ "</p>";
+  }
+  else{
+    divBusqueda.innerHTML = "No se encontro la tarea";
+  }
 
-  divBusqueda.innerHTML = "<p>" + "Tarea: " + tareaEncontrada.titulo + "<p>" + "Descripcion: " + tareaEncontrada.descripcion + 
-                          "<p>" + "Materia: " + tareaEncontrada.materia + "<p>" + "Fecha: " + tareaEncontrada.fecha +
-                          "</p>";
 });
 
 sortByDate.addEventListener("click", (event) => {
