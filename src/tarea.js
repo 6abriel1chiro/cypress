@@ -98,13 +98,13 @@ class Tarea{
     }
 
 
-    isInSubjectList(materias)
-    {
-        if (materias.includes(this.materia) )
-        {
-            return true;
-        }
-    }
+    // isInSubjectList(materias)
+    // {
+    //     if (materias.includes(this.materia) )
+    //     {
+    //         return true;
+    //     }
+    // }
 
     agregar(Tarea){              
         this.listaTareas.push(Tarea);
