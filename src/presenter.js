@@ -5,14 +5,19 @@ import estudiantes from "./estudiantes.js";
 
 
 const createForm = document.querySelector("#formBox");
+const createBuscador = document.querySelector("#buscador-form");
 
 const titulo = document.querySelector("#title");
 const desc = document.querySelector("#description");
 const sub = document.querySelector("#subject");
 const date = document.querySelector("#date");
+const buscarNomTarea = document.querySelector("#buscar-tarea");
 
 let divListaTareas = document.querySelector("#lista-tareas");
 const vista = document.querySelector("#vista-div");
+const divBusqueda = document.querySelector("#encontrado-div");
+
+let lista2 = new Tarea();
 let tareas = [];
 
 const crear = document.querySelector("#crear-form");
@@ -76,7 +81,10 @@ createForm.addEventListener("submit", (event) => {
   const subTarea = sub.options[sub.selectedIndex].text;
   const dateTarea = date.value;
 
-  
+  const tar = new Tarea(tituloTarea, descTarea, subTarea, dateTarea);
+  const lista = new Tarea();
+  lista.agregar(tar);
+
   checkTarea = tarea.crear(tituloTarea, descTarea, subTarea, dateTarea);
   
   if(checkTarea == true)
@@ -97,7 +105,19 @@ createForm.addEventListener("submit", (event) => {
     vista.innerHTML = "<p> No se creo la tarea </p>";
 
   }
+  lista2 = lista;
 
+});
+
+createBuscador.addEventListener("submit", (event) => {
+  event.preventDefault();   
+
+  const buscarTarea = buscarNomTarea.value;  
+  const tareaEncontrada = lista2.buscar(buscarTarea); 
+
+  divBusqueda.innerHTML = "<p>"+"Tarea: " + tareaEncontrada.titulo + " Descripcion: " + tareaEncontrada.descripcion + 
+                          " Materia: " + tareaEncontrada.materia + " Fecha: " + tareaEncontrada.fecha +
+                          "</p>";
 });
 
 sortByDate.addEventListener("click", (event) => {
