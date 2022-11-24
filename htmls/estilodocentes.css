@@ -55,6 +55,11 @@ input{
 	background: rgb(42, 160, 175);
 	color: white;
 	height: 80px;
+
+    width: 100%;
+	left: 0; 
+	top: 0; 
+	position: fixed;
 }	
 #main-header a {
 		color: white;
