@@ -5,12 +5,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Visualizador de Tareas</title>
+    <link rel="stylesheet" href="estiloIndex.css">
   </head>
 <body>
-  <h1> Flow Project Manager </h1>
+  <div>
+    <div class = "title-container">
+      <div>
+        <h1 id = "title"> Flow Project Manager </h1>
+      </div>
+    </div>
+    <div class = "buttons-container">
+      <div class = "button-container">
+        <div>
+          
+          <button onclick = visitPageDocentes() class = "button" id="boton-docente">Ingresar</button>
+        </div>
 
-  <a href="./htmls/docentes.html">Ingresar</a>   
+      </div>
+    </div>
+    <div class = "button1-container">
+      
+    </div>
+    <div class = "button2-container">
+      
+    </div>
+  </div>
+    
+  
+     
+<script>
+      function visitPageDocentes(){
+          window.location.href='./htmls/docentes.html';
+      }
 
+</script>
 </body>
 
 </html>

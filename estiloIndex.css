@@ -1,0 +1,30 @@
+.title-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    font-family: Georgia, "Times New Roman",
+          Times, serif;
+    background-color:powderblue;
+    color:darkslategray;
+}
+.button-container{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+.buttons-container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    margin-top: 20%;
+}
+
+.button1-container{
+    margin-left: 50px;
+}
+.button {
+    font-size: 30px;
+    border-radius: 9px;
+    background-color: #81b7c9;
+}
