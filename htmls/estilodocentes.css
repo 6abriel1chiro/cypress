@@ -27,7 +27,7 @@ section{
 #title-section{
     margin-bottom:35px;
     text-align:center;
-    background-color: rgb(131, 155, 156);
+    background-color: rgb(42, 160, 175);
     padding: 10px;
     color:antiquewhite;
 }
@@ -51,7 +51,10 @@ input{
     font-size: larger;
     font-family: Helvetica;
     margin-top: 15px;
-    margin-left: 200px;
+    margin-left: 100px;
+    background: rgb(50, 141, 153);
+    border-color: rgb(50, 141, 153);
+    color: rgb(245, 233, 233);
 }
 /*
  * Logo
