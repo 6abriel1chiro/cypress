@@ -21,17 +21,31 @@ p {
 }
 section{
     margin-bottom:150px;
+    background-color: rgb(182, 206, 207);
+    padding-bottom: 100px;
 }
-
+#title-section{
+    margin-bottom:35px;
+    background-color: rgb(131, 155, 156);
+    padding-bottom: 10px;
+    color:antiquewhite;
+}
+label{
+    margin:10px;
+    padding: 15px;
+    font-size: larger;
+}
 #main-header {
 	background: rgb(42, 160, 175);
 	color: white;
 	height: 80px;
 }	
-	#main-header a {
+#main-header a {
 		color: white;
-	}
-
+}
+#crear-button{
+    
+}
 /*
  * Logo
  */
