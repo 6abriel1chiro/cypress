@@ -66,6 +66,16 @@ input{
     border-color: rgb(50, 141, 153);
     color: rgb(245, 233, 233);
 }
+#buscar-button{
+    padding: 7px;
+    font-size: larger;
+    font-family: Helvetica;
+    margin-top: 15px;
+    margin-left: 100px;
+    background: rgb(50, 141, 153);
+    border-color: rgb(50, 141, 153);
+    color: rgb(245, 233, 233);
+}
 #no-Materia{
     background: rgb(151, 201, 207);
     padding: 12px;
