@@ -26,14 +26,17 @@ section{
 }
 #title-section{
     margin-bottom:35px;
+    text-align:center;
     background-color: rgb(131, 155, 156);
-    padding-bottom: 10px;
+    padding: 10px;
     color:antiquewhite;
 }
 label{
-    margin:10px;
-    padding: 15px;
+    margin-left: 15px;
     font-size: larger;
+}
+input{
+    margin-left: 15px;
 }
 #main-header {
 	background: rgb(42, 160, 175);
@@ -44,7 +47,11 @@ label{
 		color: white;
 }
 #crear-button{
-    
+    padding: 12px;
+    font-size: larger;
+    font-family: Helvetica;
+    margin-top: 15px;
+    margin-left: 200px;
 }
 /*
  * Logo
