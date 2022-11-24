@@ -16,16 +16,21 @@
 
 		<nav>
 			<ul>
-				<li><a href="#tareas-section">Asignar tarea a curso</a></li>
+				<li><a onclick = "document.getElementById('registrar-materia-container').scrollIntoView();">Asignar tarea a curso</a></li>
 				<li><a href="#materias-section">Registrar materia</a></li>
-				<li><a href="##reporte-section">Ver reporte de tarea</a></li>
+				<li><a href="#reporte-section">Ver reporte de tarea</a></li>
 			</ul>
 		</nav><!-- / nav -->
 
 	</header><!-- / #main-header -->
-    
     <section id="materias-section">
-        <h2>Registrar Materia</h2>
+      <div class = "registrar-materia-container"></div>
+        <div class = "title-container">
+          <div>
+            <h2>Registrar Materia</h2>
+          </div>
+        </div>
+        <div>
           <form id="crear-form">
             <label>Materia:</label>
             <input type="string" id="nombre-materia-items" />
@@ -35,52 +40,56 @@
             <br>
             <input type="submit" value="Crear" id="crear-button" />
           </form>
+        </div>
         
-          <div id="vistaMat-div"></div>
-   
-      
-          </section>
+          
+        <div id="vistaMat-div"></div>
+     
+      </div> 
+    </section>
 
-<section id="tareas-section">
+    
 
-    <h2>TAREA</h2>
-    <form id  = "formBox">
-          <label for="title">tarea</label>
-          <input type="text" id="title" placeholder="Title"/>
-      <br>
-          <label for="description">descripcion</label>
-          <input type="text" id="description" placeholder="detalle"/>
-      <br>
-          <label for="subject">materia</label>
-          <select name="subject" id="subject">
-          </select>
-          <br><br>
-          <div> no ves la materia de la que eres docente? <a href="#materias-section.html">agregala</a></div>
-      <br>
-          <label for="date">fecha</label>
-          <input type="date" id="date" placeholder="fecha"/>
-          <button id="btn">Crear</button>
+  <section id="tareas-section">
 
-  </form>
-  <div id="vista-div"> </div>
+      <h2>TAREA</h2>
+      <form id  = "formBox">
+            <label for="title">tarea</label>
+            <input type="text" id="title" placeholder="Title"/>
+        <br>
+            <label for="description">descripcion</label>
+            <input type="text" id="description" placeholder="detalle"/>
+        <br>
+            <label for="subject">materia</label>
+            <select name="subject" id="subject">
+            </select>
+            <br><br>
+            <div> no ves la materia de la que eres docente? <a href="#materias-section.html">agregala</a></div>
+        <br>
+            <label for="date">fecha</label>
+            <input type="date" id="date" placeholder="fecha"/>
+            <button id="btn">Crear</button>
 
-</section>
+    </form>
+    <div id="vista-div"> </div>
 
-
-<section id="reporte-section">
-
-      <h2>LISTA DE TAREAS</h2>
-        <button id="sort-by-date-btn">ver por fecha </button>         <button id="sort-by-sub-btn">ver por materia </button>
-
-      <div id="lista-tareas"></div>
+  </section>
 
 
+  <section id="reporte-section">
+
+        <h2>LISTA DE TAREAS</h2>
+          <button id="sort-by-date-btn">ver por fecha </button>         <button id="sort-by-sub-btn">ver por materia </button>
+
+        <div id="lista-tareas"></div>
 
 
-</section>
 
 
-<script type="module" src="../src/presenter.js"></script>
+  </section>
+
+
+  <script type="module" src="../src/presenter.js"></script>
 
 
 </body>
